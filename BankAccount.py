@@ -35,8 +35,10 @@ class BankAccount:
     def add_interest(self):
         """ if account balance > 0 then add 0.083% interest to the account balance. """
         if self.balance >= 0:
+            # checking account interest rate
             if self.account_type == 'checking':
                 self.balance += round(self.balance * 0.00083, 2)
+            # savings account interest rate
             elif self.account_type == 'savings':
                 self.balance += round(self.balance * 0.001, 2)
             print(f"Adding Interest")
@@ -47,6 +49,7 @@ class BankAccount:
     def print_statement(self):
         """ prints the account full_name, account_number and balance. """
         print(self.full_name)
+        # blur beginning of account number
         print(f"Account No.: ****{str(self.account_number)[4:]}")
         self.print_balance()
         
@@ -60,15 +63,15 @@ print("Full Name:", odysseus_x.full_name)
 print("Account Number:", odysseus_x.account_number)
 print("Balance:", odysseus_x.balance)
 # DEPOSIT
-odysseus_x.deposit(50) # -> balance = 150
+odysseus_x.deposit(50)
 # WITHDRAW
-odysseus_x.withdraw(25) # -> balance = 125
+odysseus_x.withdraw(25)
 # GET_BALANCE
-odysseus_x.get_balance() # -> "Current balance: $125". Returns self.balance
+odysseus_x.get_balance()
 # ADD_INTEREST
-odysseus_x.add_interest() # -> "Adding Interest\n Current balance: $125.10375". balance = 125.10375
+odysseus_x.add_interest()
 # PRINT_STATEMENT
-odysseus_x.print_statement() # -> "Odysseus X" "Account No.: ****3285" "Balance: $125.10375"
+odysseus_x.print_statement()
 
 # TEST 2
 bart_s = BankAccount(full_name="Bart Simpson", balance=50)
